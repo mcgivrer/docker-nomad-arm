@@ -46,7 +46,7 @@ RUN apk add --no-cache --virtual .nomad-deps gnupg \
   && gpg --keyserver pgp.mit.edu --keyserver keys.openpgp.org --keyserver keyserver.ubuntu.com --recv-keys "C874 011F 0AB4 0511 0D02 1055 3436 5D94 72D7 468F" \
   && gpg --batch --verify nomad_${NOMAD_VERSION}_SHA256SUMS.sig nomad_${NOMAD_VERSION}_SHA256SUMS \
   && grep nomad_${NOMAD_VERSION}_linux_arm.zip nomad_${NOMAD_VERSION}_SHA256SUMS | sha256sum -c \
-  && unzip -d /bin nomad_${NOMAD_VERSION}_linux_amd64.zip \
+  && unzip -d /bin nomad_${NOMAD_VERSION}_linux_arm.zip \
   && chmod +x /bin/nomad \
   && rm -rf "$GNUPGHOME" nomad_${NOMAD_VERSION}_linux_arm.zip nomad_${NOMAD_VERSION}_SHA256SUMS nomad_${NOMAD_VERSION}_SHA256SUMS.sig \
   && apk del .nomad-deps
